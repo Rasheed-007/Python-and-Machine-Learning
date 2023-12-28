@@ -1,0 +1,24 @@
+clc;clear all;close all;
+theta=-pi:0.01:pi;
+f=sin(theta).*cos(theta);
+figure(1);
+polarplot(theta,f);
+title('Field pattern');
+f_norm=f/max(f);
+figure(2);
+polarplot(theta,f_norm);
+title('Normalized Field Pattern');
+p=f.^2;
+p_norm=p/max(p);
+figure(3);
+polarplot(theta,p_norm);
+title('Normalized Power pattern');
+p_db=10*log10(p_norm);
+figure(4);
+polarplot(theta,p_db);
+title('Power Pattern In dB');
+rlim([-30 0])
+figure(5);
+polarplot(theta,f_norm);
+title('Normalized semipolar field pattern');
+thetalim(([0 180]));
